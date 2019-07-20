@@ -1,0 +1,5 @@
+# Remove from context everything except code and .sh file
+.gradle
+.idea
+build
+Jenkinsfile

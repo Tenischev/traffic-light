@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/normalize.css" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div style="width: 30%; text-align: center; position: absolute; vertical-align: center; horiz-align: right; padding-left: 5%; padding-top: 10%">
+    <table>
+        <tr th:each="news : ${page.newsList}" style="text-align: center">
+            <div class="news-wrapper">
+                <div class="news-topic"><p th:text="${news.topic}"></p></div>
+                <div class="news-text"><p th:text="${news.text}"></p></div>
+                <div class="news-footer"><p th:text="${news.time}" style="float: left;"></p><p th:text="${news.publisher}" style="float: right"></p></div>
+            </div>
+        </tr>
+    </table>
+</div>
+<div style="width: 30%; text-align: center; position: absolute; vertical-align: center; horiz-align: right; padding-left: 65%; padding-top: 18%">
+    <h1><p th:text="${page.healthReport.description}"></p></h1>
+    <h1><p th:text="${page.healthReport.score} + '%'"></p></h1>
+</div>
+<div style="text-align: center;">
+    <h1><p th:text="'Build time ' + ${page.buildInfo.timestamp}"></p></h1>
+    <div class="light_wrapper">
+        <div>
+            <p><span th:class="'red-dot_' + (${page.buildInfo.result} ? ${page.buildInfo.result} : 'OTHER')"></span></p>
+        </div>
+        <div>
+            <p><span th:class="'yellow-dot_' + (${page.buildInfo.result} ? ${page.buildInfo.result} : 'OTHER')"></span></p>
+        </div>
+        <div>
+            <p><span th:class="'green-dot_' + (${page.buildInfo.result} ? ${page.buildInfo.result} : 'OTHER')"></span></p>
+        </div>
+    </div>
+</body>
+</html>

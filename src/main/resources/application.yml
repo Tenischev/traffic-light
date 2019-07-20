@@ -1,0 +1,8 @@
+services:
+  jenkins:
+    url: http://localhost:8080/jenkins/
+    tests: job/integration%20tests/api/json/
+    build: job/build%20application%20scheduled/lastBuild/api/json/
+  news-storage:
+    url: http://localhost:22223/news/
+    amount-of-news: 3

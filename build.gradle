@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compileOnly("org.projectlombok:lombok:1.18.8")
+    annotationProcessor("org.projectlombok:lombok:1.18.8")
+}
+
+group = "ru.ifmo.ctddev.tenischev.traffic.light"
+version = "1.0"
+mainClassName = "ru.ifmo.ctddev.tenischev.traffic.light.Application"
+
+bootJar {
+    archiveBaseName = "traffic-light"
+}
